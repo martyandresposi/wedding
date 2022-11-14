@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Avenir';
+    src: url('Avenir-Book.eot');
+    src: local('Avenir Roman'), local('Avenir-Book'),
+        url('Avenir-Book.eot?#iefix') format('embedded-opentype'),
+        url('Avenir-Book.woff2') format('woff2'),
+        url('Avenir-Book.woff') format('woff'),
+        url('Avenir-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Light';
+    src: url('Avenir-Light.eot');
+    src: local('Avenir Light'), local('Avenir-Light'),
+        url('Avenir-Light.eot?#iefix') format('embedded-opentype'),
+        url('Avenir-Light.woff2') format('woff2'),
+        url('Avenir-Light.woff') format('woff'),
+        url('Avenir-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir Light Italic';
+    src: url('Avenir-LightOblique.eot');
+    src: local('Avenir Book Oblique'), local('Avenir-LightOblique'),
+        url('Avenir-LightOblique.eot?#iefix') format('embedded-opentype'),
+        url('Avenir-LightOblique.woff2') format('woff2'),
+        url('Avenir-LightOblique.woff') format('woff'),
+        url('Avenir-LightOblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Dancing Script Medium';
+    src: url('DancingScript-Medium.eot');
+    src: url('DancingScript-Medium.eot?#iefix') format('embedded-opentype'),
+        url('DancingScript-Medium.woff2') format('woff2'),
+        url('DancingScript-Medium.woff') format('woff'),
+        url('DancingScript-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('DancingScript-Regular.eot');
+    src: url('DancingScript-Regular.eot?#iefix') format('embedded-opentype'),
+        url('DancingScript-Regular.woff2') format('woff2'),
+        url('DancingScript-Regular.woff') format('woff'),
+        url('DancingScript-Regular.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Dancing Script Bold';
+    src: url('DancingScript-Bold.eot');
+    src: url('DancingScript-Bold.eot?#iefix') format('embedded-opentype'),
+        url('DancingScript-Bold.woff2') format('woff2'),
+        url('DancingScript-Bold.woff') format('woff'),
+        url('DancingScript-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Dancing Script SemiBold';
+    src: url('DancingScript-SemiBold.eot');
+    src: url('DancingScript-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('DancingScript-SemiBold.woff2') format('woff2'),
+        url('DancingScript-SemiBold.woff') format('woff'),
+        url('DancingScript-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}

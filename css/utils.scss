@@ -1,0 +1,253 @@
+//- Ease
+$mainBezier: cubic-bezier(0,.97,.43,1);
+$altBezier: cubic-bezier(.32,0,.29,.99);
+
+//- Trasform and Transition
+
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	-ms-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin transform-origin($origin) {
+	-webkit-transform-origin: $origin;
+	-moz-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+@mixin transition($transition...) {
+	-moz-transition: $transition;
+	-o-transition: $transition;
+	-webkit-transition: $transition;
+	transition: $transition;
+}
+
+@mixin boxShadow($shadow...) {
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+
+@mixin filter($filter-type, $filter-amount) {
+	-webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+	-moz-filter: $filter-type+unquote('(#{$filter-amount})');
+	-ms-filter: $filter-type+unquote('(#{$filter-amount})');
+	-o-filter: $filter-type+unquote('(#{$filter-amount})');
+	filter: $filter-type+unquote('(#{$filter-amount})');
+}
+
+//- Flexbox
+
+@mixin flexbox() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+//-- row | row-reverse | column | column-reverse
+@mixin flex-direction($direction) {
+	-webkit-flex-direction: $direction;
+	-moz-flex-direction: $direction;
+	-ms-flex-direction: $direction;
+	flex-direction: $direction;
+}
+
+//-- flex-start | flex-end | center | space-between | space-around
+@mixin justify-content($justify) {
+	-webkit-justify-content: $justify;
+	-moz-justify-content: $justify;
+	-ms-justify-content: $justify;
+	justify-content: $justify;
+	-ms-flex-pack: $justify;
+}
+
+//-- flex-start | flex-end | center | space-between | space-around | stretch
+@mixin align-content($align) {
+	-webkit-align-content: $align;
+	-moz-align-content: $align;
+	-ms-align-content: $align;
+	align-content: $align;
+}
+
+//-- flex-start | flex-end | center | baseline | stretch
+@mixin align-items($align) {
+	-webkit-align-items: $align;
+	-moz-align-items: $align;
+	-ms-align-items: $align;
+	-ms-flex-align: $align;
+	align-items: $align;
+}
+
+// nowrap | wrap | wrap-reverse
+@mixin flex-wrap($wrap) {
+	-webkit-flex-wrap: $wrap;
+	-moz-flex-wrap: $wrap;
+	-ms-flex-wrap: $wrap;
+	flex-wrap: $wrap;
+}
+
+//-- for child: <positive-number>, initial, auto, or none
+@mixin flex($values) {
+	-webkit-box-flex: $values;
+	-moz-box-flex: $values;
+	-webkit-flex: $values;
+	-ms-flex: $values;
+	flex: $values;
+}
+
+//-- for child auto | flex-start | flex-end | center | baseline | stretch
+@mixin align-self($align) {
+	-webkit-align-self: $align;
+	-moz-align-self: $align;
+	-ms-align-self: $align;
+	align-self: $align;
+}
+
+//-- for child <number>
+@mixin flex-grow($grow) {
+	-webkit-flex-grow: $grow;
+	-moz-flex-grow: $grow;
+	-ms-flex-grow: $grow;
+	flex-grow: $grow;
+}
+
+//-- <integer>
+@mixin order($val) {
+	-webkit-box-ordinal-group: $val;
+	-moz-box-ordinal-group: $val;
+	-ms-flex-order: $val;
+	-webkit-order: $val;
+	order: $val;
+}
+
+//- Utils
+
+@mixin animate($what...) {
+	-webkit-animation: $what; /* Safari 4+ */
+	-moz-animation: $what; /* Fx 5+ */
+	-o-animation: $what; /* Opera 12+ */
+	animation: $what; /* IE 10+, Fx 29+ */
+}
+
+//- Responsive
+
+$smallWidth: 360px;
+$tabletWidth: 1024px;
+$desktopWidth: 1024px;
+$largeWidth: 1280px;
+
+
+//Funzioni per le media query
+
+@mixin hamMenu($color) {
+	
+	span {
+		display: block;
+		width: 33px;
+		height: 4px;
+		margin-bottom: 5px;
+		position: relative;
+		
+		background: $color;
+		border-radius: 3px;
+		@include transition(background 0.35s ease);
+		
+		z-index: 1;
+		
+		@include transform-origin(4px 0px);
+		@include transition(transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),	background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease);
+
+		&:first-child {
+			@include transform-origin(0% 0%);
+		}
+
+		&:nth-last-child(2){
+			@include transform-origin(0% 100%);
+		}
+	}
+
+	input {
+
+		display: block;
+		width: 40px;
+		height: 32px;
+		position: absolute;
+		top: -7px;
+		left: -5px;
+		
+		cursor: pointer;
+		
+		opacity: 0;
+		z-index: 2;
+		
+		-webkit-touch-callout: none;
+
+		&.menuActive ~ span {
+			opacity: 1;
+			background: #FFF;
+			@include transform(rotate(45deg) translate(1px, -1px));
+		}
+
+		&.menuActive ~ span:nth-last-child(2) {
+			opacity: 0;
+			@include transform(rotate(0deg) scale(0.2, 0.2));
+		}
+
+		&.menuActive ~ span:nth-last-child(1) {
+			@include transform(rotate(-45deg) translate(0, -1px));
+		}
+
+	}
+
+}
+
+@mixin smallMobile() {
+	@media only screen and (max-width: $smallWidth) {
+		@content
+	}
+}
+
+//- Telefono
+
+@mixin mobile() {
+	@media only screen and (max-width: $tabletWidth) {
+		@content
+	}
+}
+
+//- Height Small
+
+@mixin heightSmall() {
+	@media screen and (min-width: 1365px) and (max-width: 1366px) {
+		@content
+	}
+}
+
+//- Telefono e Tablet Portrait
+
+@mixin tabletPortrait() {
+	@media only screen and (max-width: $tabletWidth + 33) {
+		@content
+	}
+}
+
+//- Tablet "Portrait" e "Landandscape"
+
+@mixin tablet() {
+	@media only screen and (min-width: $tabletWidth) and (max-width: $desktopWidth) {
+		@content
+	}
+}
+
+//- Desktop o superiore
+
+@mixin desktop() {
+	@media only screen and (min-width: ($desktopWidth + 1)){
+		@content
+	}
+}
