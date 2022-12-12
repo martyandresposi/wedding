@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: https://martyandresposi.github.io/wedding/websitemap.xml
